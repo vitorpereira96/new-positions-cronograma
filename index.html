@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Positions 2.0 — Cronograma do Projeto</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #0952CC;
+  --blue-dark: #05317A;
+  --blue-mid: #1a6fe8;
+  --blue-light: #E8F2FA;
+  --blue-xlight: #F0F6FD;
+  --purple: #7C3AED;
+  --purple-light: #EDE9FE;
+  --teal: #0891B2;
+  --teal-light: #E0F2FE;
+  --amber: #D97706;
+  --amber-light: #FEF3C7;
+  --red: #DC2626;
+  --red-light: #FEE2E2;
+  --green: #059669;
+  --green-light: #D1FAE5;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --gray-border: #E5E7EB;
+  --text: #111827;
+  --text-mid: #374151;
+  --text-muted: #6B7280;
+  --white: #FFFFFF;
+  --bg: #F7F9FC;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--blue-dark);
+  padding: 28px 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(26,111,232,0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.header-left h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.4px;
+}
+.header-left .subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 8px;
+}
+.header-badge span { font-weight: 600; color: #fff; }
+
+.kpi-row {
+  display: flex;
+  gap: 0;
+  margin-top: 28px;
+}
+.kpi {
+  flex: 1;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+.kpi:last-child { border-right: none; }
+.kpi-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 500;
+}
+.kpi-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 4px;
+  line-height: 1;
+}
+.kpi-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 3px;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.status-pill.green { background: #D1FAE5; color: #065F46; }
+.status-pill.amber { background: #FEF3C7; color: #92400E; }
+.status-pill.blue  { background: rgba(9,82,204,0.25); color: #93C5FD; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.dot.green { background: #059669; }
+.dot.amber { background: #D97706; }
+.dot.blue  { background: #60A5FA; }
+
+/* ── NAV TABS ── */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-border);
+  display: flex;
+  padding: 0 40px;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.15s;
+  user-select: none;
+}
+.nav-tab:hover { color: var(--blue); }
+.nav-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* ── MAIN ── */
+.main { padding: 32px 40px; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+}
+
+/* ── GANTT ── */
+.gantt-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.gantt-legend {
+  display: flex;
+  gap: 20px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--gray-border);
+  flex-wrap: wrap;
+}
+.leg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.leg-sq {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.gantt-scroll { overflow-x: auto; }
+.gantt-table { width: 100%; border-collapse: collapse; min-width: 900px; }
+.gantt-table th {
+  padding: 8px 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  border-bottom: 1px solid var(--gray-border);
+  background: var(--gray-light);
+}
+.gantt-table th.label-col {
+  text-align: left;
+  padding-left: 16px;
+  width: 200px;
+}
+.gantt-row { cursor: pointer; transition: background 0.12s; }
+.gantt-row:hover { background: var(--blue-xlight); }
+.gantt-row.active { background: var(--blue-xlight); }
+.gantt-row td { border-bottom: 1px solid var(--gray-border); }
+.gantt-row:last-child td { border-bottom: none; }
+.gantt-label {
+  padding: 10px 16px;
+  min-width: 200px;
+  width: 200px;
+}
+.gantt-label-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.gantt-label-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+.gantt-cell {
+  position: relative;
+  padding: 8px 2px;
+  width: 52px;
+  min-width: 52px;
+}
+.gantt-cell.month-start { border-left: 1px dashed var(--gray-border); }
+.gantt-bar {
+  position: absolute;
+  top: 8px; bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+}
+.bar-exec    { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+.bar-solo    { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+.bar-dep     { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.bar-test    { background: #D1FAE5; color: #065F46; border: 1px solid #A7F3D0; }
+.bar-golive  { background: #0952CC;  color: #fff;    border: 1px solid #0952CC; }
+.bar-ferias  { background: repeating-linear-gradient(45deg,#FEF3C7,#FEF3C7 4px,#FDE68A 4px,#FDE68A 8px); color: #92400E; border: 1px solid #F59E0B; }
+.month-line {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 1px;
+  background: var(--gray-border);
+}
+.today-marker {
+  background: var(--red);
+  width: 2px;
+  border-radius: 1px;
+}
+.gantt-month-header {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ── DETAIL PANEL ── */
+.detail-panel {
+  background: var(--white);
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 12px;
+  display: none;
+  animation: slideIn 0.18s ease;
+}
+.detail-panel.open { display: block; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.dp-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+.dp-dates {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.dp-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-muted);
+  padding: 4px;
+  line-height: 1;
+}
+.dp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 700px) { .dp-grid { grid-template-columns: 1fr; } }
+.dp-block { }
+.dp-block-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gray-border);
+}
+.dp-list { list-style: none; }
+.dp-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 0;
+  font-size: 12px;
+  color: var(--text-mid);
+  border-bottom: 1px solid var(--gray-border);
+}
+.dp-list li:last-child { border-bottom: none; }
+.dp-bullet {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.dp-bullet.red { background: var(--red); }
+.dp-bullet.green { background: var(--green); }
+.dp-bullet.amber { background: var(--amber); }
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.todo-item:hover { background: var(--gray-light); }
+.todo-check {
+  width: 16px; height: 16px;
+  border: 1.5px solid var(--gray);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.todo-item.done .todo-check {
+  background: var(--green);
+  border-color: var(--green);
+}
+.todo-item.done .todo-check::after { content: '✓'; font-size: 9px; color: #fff; font-weight: 700; }
+.todo-item.done span { text-decoration: line-through; color: var(--text-muted); }
+.badge-blocker {
+  font-size: 9px;
+  font-weight: 700;
+  background: var(--red-light);
+  color: var(--red);
+  border-radius: 4px;
+  padding: 1px 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+.badge-ok {
+  font-size: 9px;
+  font-weight: 700;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 4px;
+  padding: 1px 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+.person-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-light);
+  border-radius: 20px;
+  padding: 4px 10px 4px 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--blue-dark);
+  margin: 3px;
+}
+.avatar {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* ── SPRINTS ── */
+.sprints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.sprint-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.sprint-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.sprint-card.sc-blue::before  { background: var(--blue); }
+.sprint-card.sc-purple::before { background: var(--purple); }
+.sprint-card.sc-teal::before  { background: var(--teal); }
+.sprint-card.sc-green::before { background: var(--green); }
+.sprint-card.sc-amber::before { background: var(--amber); }
+.sprint-num {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+.sprint-dates {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.sprint-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 8px;
+}
+.sprint-deliverable {
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.sprint-owner {
+  display: flex;
+  gap: 4px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.sprint-status {
+  margin-top: 12px;
+}
+.status-select {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid var(--gray-border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-mid);
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+}
+.status-select:focus { border-color: var(--blue); }
+
+/* ── RISKS ── */
+.risks-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.risks-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--gray-light);
+  border-bottom: 1px solid var(--gray-border);
+}
+.risks-table td {
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text-mid);
+  border-bottom: 1px solid var(--gray-border);
+  vertical-align: top;
+}
+.risks-table tr:last-child td { border-bottom: none; }
+.risk-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.rp-alto   { background: var(--red-light);   color: var(--red); }
+.rp-medio  { background: var(--amber-light);  color: var(--amber); }
+.rp-baixo  { background: var(--green-light);  color: var(--green); }
+.rp-aberto { background: var(--red-light);    color: var(--red); }
+.rp-prog   { background: var(--amber-light);  color: var(--amber); }
+.rp-ok     { background: var(--green-light);  color: var(--green); }
+.risk-status-sel {
+  padding: 3px 8px;
+  border: 1px solid var(--gray-border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+  color: var(--text-mid);
+}
+
+/* ── TEAM ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  padding: 18px;
+}
+.team-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.team-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.team-role { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.team-etapas {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.etapa-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--blue-light);
+  color: var(--blue-dark);
+}
+
+/* ── NOTES ── */
+.notes-area {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-mid);
+  background: var(--white);
+  resize: vertical;
+  outline: none;
+}
+.notes-area:focus { border-color: var(--blue); }
+
+/* ── PAGE VIEWS ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar-wrap {
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  height: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: #60A5FA;
+  transition: width 0.4s;
+}
+
+.divider { height: 1px; background: var(--gray-border); margin: 28px 0; }
+
+.info-box {
+  background: var(--blue-xlight);
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #1E40AF;
+  margin-bottom: 16px;
+}
+
+/* ── METHODOLOGY BOX ── */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.method-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.method-card h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.method-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="header-left">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Talent Acquisition · Pipefy</div>
+      <h1>New Positions 2.0</h1>
+      <div class="subtitle">Reestruturação completa do pipe de requisições de vagas</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <div class="header-badge">Sponsor <span>Douglas Barbosa</span></div>
+        <div class="header-badge">PM <span>Isa Azevedo</span></div>
+        <div class="header-badge">Owner técnica <span>Bruna Moura</span></div>
+        <div class="header-badge">Co-executor <span>Vitor Pereira</span></div>
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:4px;">Versão do cronograma</div>
+      <div style="font-size:13px;font-weight:600;color:#fff;">Jun/2026</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;">Documento vivo — editável</div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">Início previsto</div>
+      <div class="kpi-value">16 jun</div>
+      <div class="kpi-sub">Semana de 15/06/2026</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Go-live estimado</div>
+      <div class="kpi-value">28 set</div>
+      <div class="kpi-sub">Fim do Q3 / início Q4</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Duração total</div>
+      <div class="kpi-value">~15 sem</div>
+      <div class="kpi-sub">~36h de esforço técnico</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Capacidade/semana</div>
+      <div class="kpi-value">2h</div>
+      <div class="kpi-sub">Vitor + Bruna em paralelo</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Status do projeto</div>
+      <div class="kpi-value" style="font-size:14px;margin-top:6px;">
+        <select id="project-status" style="background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;outline:none;padding:0;" onchange="updateProjectStatus()">
+          <option value="pre" selected>Pré-execução</option>
+          <option value="exec">Em execução</option>
+          <option value="risco">Em risco</option>
+          <option value="concluido">Concluído</option>
+        </select>
+      </div>
+      <div id="status-pill-wrap" style="margin-top:4px;">
+        <span class="status-pill blue"><span class="dot blue"></span>Planejado</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-tab active" onclick="showPage('gantt',this)">Cronograma (Gantt)</div>
+  <div class="nav-tab" onclick="showPage('sprints',this)">Sprints</div>
+  <div class="nav-tab" onclick="showPage('etapas',this)">Etapas detalhadas</div>
+  <div class="nav-tab" onclick="showPage('riscos',this)">Riscos e dependências</div>
+  <div class="nav-tab" onclick="showPage('time',this)">Time e papéis</div>
+  <div class="nav-tab" onclick="showPage('notas',this)">Anotações da reunião</div>
+  <div class="nav-tab" onclick="showPage('campos',this)">Campos por fase</div>
+</div>
+
+<div class="main">
+
+<!-- PAGE: GANTT -->
+<div class="page active" id="page-gantt">
+  <div class="info-box">
+    Clique em qualquer etapa do Gantt para ver o detalhamento completo — entregáveis, critérios de aceite, TO-DOs e responsáveis.
+  </div>
+
+  <div class="gantt-wrap">
+    <div class="gantt-legend">
+      <div class="leg"><div class="leg-sq" style="background:#DBEAFE;border:1px solid #BFDBFE;"></div>Execução (Vitor + Bruna)</div>
+      
+      <div class="leg"><div class="leg-sq" style="background:#FEF3C7;border:1px solid #FDE68A;"></div>Dependência externa</div>
+      <div class="leg"><div class="leg-sq" style="background:#D1FAE5;border:1px solid #A7F3D0;"></div>Testes e homologação</div>
+      <div class="leg"><div class="leg-sq" style="background:#0952CC;"></div>Go-live</div>
+      <div class="leg"><div class="leg-sq" style="background:repeating-linear-gradient(45deg,#FEF3C7,#FEF3C7 4px,#FDE68A 4px,#FDE68A 8px);border:1px solid #F59E0B;"></div>Férias Vitor</div>
+    </div>
+
+    <div class="gantt-scroll">
+      <table class="gantt-table" id="gantt-table">
+        <!-- built by JS -->
+      </table>
+    </div>
+  </div>
+
+  <div id="detail-panel" class="detail-panel"></div>
+</div>
+
+<!-- PAGE: SPRINTS -->
+<div class="page" id="page-sprints">
+  <div class="info-box">
+    O projeto segue metodologia de pequenas entregas a cada 2 semanas (sprints). Cada sprint tem um entregável concreto e um responsável principal. Atualize o status conforme o projeto avança.
+  </div>
+  <div class="sprints-grid" id="sprints-grid"></div>
+</div>
+
+<!-- PAGE: ETAPAS -->
+<div class="page" id="page-etapas">
+  <div id="etapas-content"></div>
+</div>
+
+<!-- PAGE: RISCOS -->
+<div class="page" id="page-riscos">
+  <div class="info-box">
+    Riscos identificados com base no playbook do projeto e nas dependências externas mapeadas. Atualize o status conforme as conversas avançarem.
+  </div>
+  <table class="risks-table" id="risks-table"></table>
+</div>
+
+<!-- PAGE: TIME -->
+<div class="page" id="page-time">
+  <div class="info-box">
+    Papéis e responsabilidades definidos na reunião de alinhamento de 09/06/2026.
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <h4>Metodologia</h4>
+      <p>Sprints de 2 semanas com pequenas entregas incrementais. Modelo híbrido (ágil + cascata): as etapas seguem uma sequência lógica, mas dentro de cada etapa há flexibilidade para adaptar o escopo conforme o que for descoberto durante a execução.</p>
+    </div>
+    <div class="method-card">
+      <h4>Cadência de acompanhamento</h4>
+      <p>Reunião quinzenal do squad para revisão de progresso. Isa acompanha o andamento e apoia na gestão das dependências externas. Status atualizado neste documento a cada sprint.</p>
+    </div>
+  </div>
+
+  <div class="team-grid" id="team-grid"></div>
+</div>
+
+<!-- PAGE: NOTAS -->
+<div class="page" id="page-notas">
+  <div class="info-box">
+    Use este espaço para registrar decisões, alinhamentos e encaminhamentos durante a reunião de amanhã. As anotações ficam salvas na sessão.
+  </div>
+  <div class="section">
+    <div class="section-title">Decisões da reunião</div>
+    <textarea class="notes-area" id="notes-decisoes" placeholder="Ex: Ficou definido que a etapa 3 será iniciada em X data, responsável Y..."></textarea>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="section-title">Encaminhamentos</div>
+    <textarea class="notes-area" id="notes-enc" placeholder="Ex: [Vitor] Falar com a Hellen até XX/XX para mapear automações legadas..."></textarea>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="section-title">Dúvidas em aberto</div>
+    <textarea class="notes-area" id="notes-duvidas" placeholder="Ex: Definir quando iniciar a conversa com o time de Compliance sobre o BCK..."></textarea>
+  </div>
+</div>
+
+
+<!-- PAGE: CAMPOS -->
+<div class="page" id="page-campos">
+  <div class="info-box">
+    Mapeamento de todos os campos por fase, com indicação de ação (KEEP / ADD / DEL / TO-DO) e responsável pela execução. Baseado na seção 2.2 da documentação do projeto.
+  </div>
+  <div id="campos-content"></div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+const WEEK_MS = 7*24*3600*1000;
+const START = new Date('2026-06-15');
+const N_WEEKS = 18;
+
+function weekNum(dateStr) {
+  return (new Date(dateStr) - START) / WEEK_MS;
+}
+
+// ── DATA ──────────────────────────────────────────────
+const etapas = [
+  {
+    id: 1,
+    nome: 'Etapa 1 — Construção das fases',
+    sub: '11 fases no Pipefy',
+    bars: [{ type: 'exec', start: '2026-06-15', end: '2026-06-21', label: '11 fases' }],
+    sprint: 1,
+    esforco: '~2h',
+    datas: '16 – 21 jun',
+    responsaveis: ['Vitor', 'Bruna'],
+    entregaveis: [
+      '11 fases criadas no pipe novo: Start Form, BP Validation, HR Management, Financial Approval, Backlog, Position Alignment, Recruiting Process Funnel, Background Check, Offer, Closed Position External, Closed Position Internal',
+      'On Hold configurada como fase paralela (off-flow)',
+      'Closed Position External e Internal como duas fases finais distintas',
+      'Ordem das fases espelha o mapa cronológico do playbook'
+    ],
+    aceite: [
+      'Todas as 11 fases criadas com nomes em inglês (sem acentos)',
+      'On Hold configurada como off-flow (não aparece no kanban principal)',
+      'Ordem das fases correta no kanban'
+    ],
+    todos: [
+      { texto: '[Bruna] Criar as 11 fases no pipe novo (Bruna inicia o pipe por preferência — especialmente a fase Position Alignment que ela construiu)', bloqueante: false, done: false },
+      { texto: '[Bruna] Configurar On Hold como fase paralela', bloqueante: false, done: false },
+      { texto: '[Vitor] Validar ordem das fases com Bruna após criação', bloqueante: false, done: false }
+    ],
+    obs: 'Etapa mais rápida do projeto — serve como aquecimento e garante o esqueleto antes de começar os campos.'
+  },
+  {
+    id: 2,
+    nome: 'Etapa 2 — Construção dos campos por fase',
+    sub: 'Maior volume de trabalho',
+    bars: [{ type: 'exec', start: '2026-06-22', end: '2026-07-19', label: 'Campos · ~8h' }],
+    sprint: '2–3',
+    esforco: '~8h',
+    datas: '22 jun – 19 jul',
+    responsaveis: ['Vitor', 'Bruna'],
+    entregaveis: [
+      'Campos configurados nas 11 fases conforme tabelas do playbook (seções 2.2.1 a 2.2.12)',
+      'Campos KEEP replicados do pipe atual',
+      'Campos ADD criados com tipos corretos',
+      'Campos DEL não replicados',
+      'Campos condicionais funcionando (ex: país "Outros", RPKS, BCK)',
+      '7 campos de IA na fase Position Alignment (Role Context, Business Structure, etc.)',
+      'Campos de conversão no Recruiting Process Funnel (entrevistados TA, HM, case)',
+      'Campos de Hold (motivo, datas, responsável)',
+      'Campos de Offer unificados (sem duplicação Prepare Offer / Offer Sent)'
+    ],
+    aceite: [
+      'Cada campo tem o tipo correto (lista, texto, data, checkbox, numérico)',
+      'Condicionais disparam corretamente',
+      'Nenhum campo legado ou desativado foi replicado',
+      'Campos obrigatórios marcados como obrigatórios'
+    ],
+    todos: [
+      { texto: 'Alinhar com Tati os KPIs priorizados e mapear onde cada dado será capturado no pipe (encaminhamento da reunião de 29/05 com Douglas)', bloqueante: true, done: false },
+      { texto: 'Cruzar documento de KPIs do Douglas com os campos mapeados — confirmar que data de abertura, data de aceite, canal de origem (lista fechada), status da vaga, data de entrada do candidato, tipo interno/externo e motivo de recusa estão presentes antes de fechar a etapa', bloqueante: true, done: false },
+      { texto: '[Bruna] Start Form — replicar/criar campos', bloqueante: false, done: false },
+      { texto: '[Bruna] BP Validation — campos novos (RPKS, critical, JD validado)', bloqueante: false, done: false },
+      { texto: '[Bruna] HR Management — condicionais de bônus e SOP', bloqueante: false, done: false },
+      { texto: '[Bruna] Financial Approval — budget e comissão obrigatórios', bloqueante: false, done: false },
+      { texto: '[Bruna] Backlog — recruiter responsável', bloqueante: false, done: false },
+      { texto: '[Bruna] Position Alignment — 7 campos de IA + trigger (Bruna criou esta fase; preferência dela mantê-la)', bloqueante: false, done: false },
+      { texto: '[Vitor] Recruiting Process Funnel — campos de conversão + BCK', bloqueante: false, done: false },
+      { texto: '[Vitor] Background Check — campos novos', bloqueante: false, done: false },
+      { texto: '[Vitor] Offer — unificar campos, remover legados', bloqueante: false, done: false },
+      { texto: '[Vitor] Closed Position External e Internal — campos finais', bloqueante: false, done: false },
+      { texto: '[Vitor] On Hold — campos de controle', bloqueante: false, done: false }
+    ],
+    obs: 'Etapa mais trabalhosa. Cada fase tem uma tabela detalhada no playbook (seção 2.2) com o status de cada campo (KEEP / ADD / DEL / TO-DO). Atenção: antes de fechar esta etapa, é obrigatório cruzar os campos configurados com o documento de KPIs do Douglas — se um campo necessário para calcular Time to Fill, Offer Acceptance Rate ou Taxa de Conversão não for incluído agora, ele não poderá ser recuperado retroativamente.'
+  },
+  {
+    id: 3,
+    nome: 'Etapa 3 — Construção das automações',
+    sub: '21 automações · Férias Vitor: 20/jul–03/ago (Bruna + Júlia)',
+    bars: [
+      { type: 'ferias', start: '2026-07-20', end: '2026-08-03', label: 'Férias Vitor · Bruna + Júlia' },
+      { type: 'exec', start: '2026-08-03', end: '2026-08-16', label: 'Retomada juntos' }
+    ],
+    sprint: '4–5',
+    esforco: '~8h',
+    datas: '20 jul – 16 ago',
+    responsaveis: ['Bruna', 'Vitor', 'Hellen'],
+    entregaveis: [
+      '21 automações essenciais criadas/refeitas (lista completa na seção 2.3.1 do playbook)',
+      '4 grupos de automações legadas desligadas (It\'s a Match, Offer Letter, Card to, campos removidos)',
+      'Automações de label: RPKS, CRITICAL POSITION, CONFIDENTIAL POSITION',
+      'Automação de recusa de offer (zerar + mover + BOT)',
+      'Automação de IA no Position Alignment (gatilho + prompt)',
+      'Automação de BCK auto-move',
+      'Automação de arquivamento na Financial Approval (BOT)',
+      'Inventário de automações (Anexo C) atualizado'
+    ],
+    aceite: [
+      'Todas as 21 automações da tabela 2.3.1 criadas e testadas individualmente',
+      'Automações desligadas não existem no pipe novo',
+      'Inventário (Anexo C) 100% atualizado'
+    ],
+    todos: [
+      { texto: 'Conversa com Hellen — knowledge transfer das automações legadas', bloqueante: true, done: false },
+      { texto: 'Inventariar automações atuais do pipe antigo (Anexo C)', bloqueante: true, done: false },
+      { texto: '[Bruna] Criar automações de label (RPKS, CRITICAL, CONFIDENTIAL) — automações do início do funil', bloqueante: false, done: false },
+      { texto: '[Bruna] Replicar automação de Position Name PT/EN auto-fill', bloqueante: false, done: false },
+      { texto: '[Bruna] Replicar automação de Bonus accelerators', bloqueante: false, done: false },
+      { texto: '[Bruna] Criar automação de IA — Position Alignment auto-fill', bloqueante: false, done: false },
+      { texto: '[Bruna] Desligar conexão com It\'s a Match', bloqueante: false, done: false },
+      { texto: '[Júlia — cobre Vitor nas férias] Criar automação de recusa de offer (zerar + mover + BOT)', bloqueante: false, done: false },
+      { texto: '[Júlia — cobre Vitor nas férias] Criar automação de BCK auto-move', bloqueante: false, done: false },
+      { texto: '[Júlia — cobre Vitor nas férias] Criar automações de Internal Recruitment (trigger + move to Closed Internal)', bloqueante: false, done: false },
+      { texto: '[Vitor — retomada] Criar automações de Closed Position External (IT, Onboarding, Payroll, SOP)', bloqueante: false, done: false },
+      { texto: '[Vitor — retomada] Criar automação de Welcome BOT internal + TA archive alert', bloqueante: false, done: false }
+    ],
+    obs: 'Etapa mais complexa. A Hellen tem conhecimento crítico das automações atuais — a conversa com ela (TO-DO 6 do playbook) é bloqueante para garantir que nada importante seja perdido.'
+  },
+  {
+    id: 4,
+    nome: 'Etapa 4 — BOTs do Slack e templates de e-mail',
+    sub: '5 BOTs + 3 e-mails + prompt de IA',
+    bars: [{ type: 'exec', start: '2026-08-17', end: '2026-08-30', label: '5 BOTs + prompt IA' }],
+    sprint: 6,
+    esforco: '~4h',
+    datas: '17 – 30 ago',
+    responsaveis: ['Vitor', 'Bruna'],
+    entregaveis: [
+      'BOT 1: Alerta de criação do card (HM + BP)',
+      'BOT 2: Alerta de recusa de offer (canal squad TA)',
+      'BOT 3: Boas-vindas interno — Closed Position Internal',
+      'BOT 4: Alerta de arquivamento — Financial Approval',
+      'BOT 5: Aprovação Internal Recruitment (TO-DO 1)',
+      'E-mail de offer ao candidato (mantido)',
+      'E-mail de boas-vindas externo (mantido)',
+      'E-mail pós-alinhamento ao gestor (validar manter/BOT/descontinuar)',
+      'Prompt de IA do Position Alignment configurado e testado'
+    ],
+    aceite: [
+      'Todos os BOTs configurados com canais e destinatários corretos',
+      'Templates de e-mail revisados textualmente',
+      'Prompt de IA testado com ao menos 1 transcrição real'
+    ],
+    todos: [
+      { texto: '[Vitor] Configurar BOT de criação de card (HM + BP)', bloqueante: false, done: false },
+      { texto: '[Vitor] Configurar BOT de recusa de offer', bloqueante: false, done: false },
+      { texto: '[Vitor] Configurar BOT de boas-vindas interno (Closed Position Internal)', bloqueante: false, done: false },
+      { texto: '[Vitor] Configurar BOT de arquivamento Financial Approval', bloqueante: false, done: false },
+      { texto: '[Bruna] Configurar prompt de IA Position Alignment', bloqueante: false, done: false },
+      { texto: '[Bruna] Testar prompt com transcrição real anonimizada', bloqueante: true, done: false },
+      { texto: '[Vitor] Validar e-mail pós-alinhamento com gestor (TO-DO 13)', bloqueante: false, done: false }
+    ],
+    obs: 'Regra geral: comunicações internas viram BOTs no Slack; comunicações com candidato externo permanecem como e-mail. O prompt de IA precisa ser testado com ao menos 3 transcrições reais antes do go-live (TO-DO 10).'
+  },
+  {
+    id: 5,
+    nome: 'Etapa 5 — Auditoria de comunicações',
+    sub: 'Inventário 100% dos e-mails do pipe atual',
+    bars: [{ type: 'dep', start: '2026-08-17', end: '2026-08-30', label: 'Hellen + áreas' }],
+    sprint: 6,
+    esforco: '~3h',
+    datas: '17 – 30 ago',
+    responsaveis: ['Vitor', 'Bruna', 'Hellen'],
+    entregaveis: [
+      'Anexo D preenchido com 100% dos e-mails do pipe atual',
+      'Cada e-mail classificado: MANTER E-MAIL / VIRAR BOT / DESCONTINUAR',
+      'BOTs derivados da auditoria configurados na Etapa 4',
+      'Templates mantidos como e-mail revisados textualmente'
+    ],
+    aceite: [
+      'Anexo D 100% preenchido',
+      'Classificação de destino para cada e-mail',
+      'Nenhum e-mail ativo no pipe antigo sem decisão de destino'
+    ],
+    todos: [
+      { texto: 'Conversa com Hellen sobre templates de e-mail legados', bloqueante: true, done: false },
+      { texto: '[Bruna] Acessar aba de automações do pipe antigo e listar todos os e-mails', bloqueante: false, done: false },
+      { texto: '[Vitor] Conversa com Joyce — templates de Payroll', bloqueante: false, done: false },
+      { texto: '[Vitor] Conversa com Carolina — templates de Onboarding', bloqueante: false, done: false },
+      { texto: '[Bruna] Conversa com Total Rewards — templates de remuneração', bloqueante: false, done: false },
+      { texto: '[Bruna + Vitor] Preencher Anexo D completo', bloqueante: false, done: false }
+    ],
+    obs: 'Etapa com dependência externa: a Hellen tem conhecimento dos templates legados de SOP e outras automações antigas. Pode ser executada em paralelo com a Etapa 4.'
+  },
+  {
+    id: 6,
+    nome: 'Etapa 6 — Cards conectados com cada time',
+    sub: '6 cards: Payroll, SOP, IT, Onboarding, Compliance, Internal Rec.',
+    bars: [{ type: 'dep', start: '2026-08-31', end: '2026-09-13', label: 'Joyce · Compliance · etc.' }],
+    sprint: 7,
+    esforco: '~6h',
+    datas: '31 ago – 13 set',
+    responsaveis: ['Vitor', 'Bruna'],
+    entregaveis: [
+      'Card Payroll refeito com Joyce — campos e tipos alinhados',
+      'Card SOP refeito com Jessica — abertura manual na fase Offer',
+      'Card IT refeito com Luis Chang — campos enxutos confirmados',
+      'Card Onboarding refeito com Carolina — nível de cargo adicionado',
+      'Card Compliance (BCK) construído do zero — mecânica de retorno definida',
+      'Card Internal Recruitment recriado — aprovação + BOT de comunicação'
+    ],
+    aceite: [
+      'Cada card tem documentação acordada com o responsável da área',
+      'Pipes receptores ajustados conforme acordado',
+      'Cards testados end-to-end (card teste em cada pipe)'
+    ],
+    todos: [
+      { texto: 'Alinhar com Joyce: Type of Hiring, opções e gatilhos (TO-DO 5)', bloqueante: true, done: false },
+      { texto: 'Validar com Compliance: mecânica do card BCK (TO-DO 9)', bloqueante: true, done: false },
+      { texto: '[Vitor] Confirmar com Luis Chang: lista escrita de campos dispensáveis + construir card IT', bloqueante: false, done: false },
+      { texto: '[Vitor] Confirmar com Carolina: nível de cargo no card Onboarding + construir card', bloqueante: false, done: false },
+      { texto: '[Vitor] Definir notificação do IT para movimentação interna (TO-DO 4)', bloqueante: false, done: false },
+      { texto: '[Bruna] Alinhar com Joyce e construir card Payroll do zero', bloqueante: true, done: false },
+      { texto: '[Bruna] Desenhar BOT de aprovação do Internal Recruitment (TO-DO 1)', bloqueante: true, done: false },
+      { texto: '[Bruna] Construir card SOP com Jessica', bloqueante: false, done: false }
+    ],
+    obs: 'Regra crítica: campos do pipe origem e do pipe destino precisam ter o mesmo tipo. Os times receptores precisam ajustar seus pipes quando necessário.'
+  },
+  {
+    id: 7,
+    nome: 'Etapa 7 — Testes e homologação',
+    sub: 'Vaga teste end-to-end',
+    bars: [{ type: 'test', start: '2026-09-14', end: '2026-09-27', label: 'Vaga teste + validações' }],
+    sprint: 8,
+    esforco: '~4h',
+    datas: '14 – 27 set',
+    responsaveis: ['Vitor', 'Bruna'],
+    entregaveis: [
+      'Vaga teste criada e avançada por todas as fases',
+      'Todos os cards conectados criados e validados nos pipes destino',
+      'BOTs e e-mails disparados nos gatilhos corretos',
+      'Cenários de exceção testados: recusa de offer, Hold, BCK aprovado/reprovado, vaga interna',
+      'Automação de IA testada com transcrição real',
+      'Checklist final pré go-live 100% preenchido'
+    ],
+    aceite: [
+      'Zero bugs bloqueantes: qualquer card conectado incorreto bloqueia o go-live',
+      'Automações de label funcionando (bloqueia go-live)',
+      'Falha na automação de IA NÃO bloqueia — fallback manual documentado'
+    ],
+    todos: [
+      { texto: '[Bruna] Criar vaga teste com perfil simples e avançar fase a fase (fases 1-6)', bloqueante: false, done: false },
+      { texto: '[Vitor] Avançar vaga teste nas fases 7-11 e validar automações', bloqueante: false, done: false },
+      { texto: '[Vitor] Testar cenário de recusa de offer', bloqueante: false, done: false },
+      { texto: '[Bruna] Testar cenário de vaga interna (Closed Position Internal)', bloqueante: false, done: false },
+      { texto: '[Bruna] Testar automação de IA com transcrição real (TO-DO 10)', bloqueante: true, done: false },
+      { texto: '[Vitor] Validar cards conectados IT + Onboarding com responsáveis', bloqueante: true, done: false },
+      { texto: '[Bruna] Validar cards Payroll + SOP + Internal Rec. com responsáveis', bloqueante: true, done: false },
+      { texto: '[Bruna + Vitor] Preencher checklist final (seção 2.7.2 do playbook)', bloqueante: false, done: false }
+    ],
+    obs: 'O pipe antigo permanece ativo e em paralelo durante toda a homologação. Só após a aprovação do checklist final a data de go-live é oficializada.'
+  },
+  {
+    id: 8,
+    nome: 'Etapa 8 — Go-live e plano de transição',
+    sub: 'Data de corte + comunicação + pós-go-live',
+    bars: [{ type: 'golive', start: '2026-09-28', end: '2026-10-05', label: 'Go-live' }],
+    sprint: null,
+    esforco: '~2h',
+    datas: '28 set – 05 out',
+    responsaveis: ['Vitor', 'Bruna', 'Tati'],
+    entregaveis: [
+      'Data de corte definida e comunicada ao time',
+      'Todas as novas vagas abertas no pipe novo a partir da data de corte',
+      'Comunicado interno via BOT no Slack para todos os stakeholders',
+      'Documentação interna atualizada apontando para o novo pipe',
+      'Treinamento rápido (15 min) para gestores frequentes',
+      'Canal de feedback de bugs aberto (#ta-pipe-novo-feedback)',
+      'Retrospectivas agendadas: 1ª e 4ª semana pós go-live'
+    ],
+    aceite: [
+      'Pipe antigo ativo em paralelo (sem novas vagas)',
+      'Primeiro card real aberto no pipe novo',
+      'Todos os stakeholders notificados'
+    ],
+    todos: [
+      { texto: '[Bruna + Vitor] Definir data de corte com o squad', bloqueante: false, done: false },
+      { texto: '[Vitor] Configurar BOT de comunicado de go-live', bloqueante: false, done: false },
+      { texto: '[Bruna + Vitor] Fazer treinamento para gestores frequentes (15 min)', bloqueante: false, done: false },
+      { texto: '[Vitor] Criar canal #ta-pipe-novo-feedback no Slack', bloqueante: false, done: false },
+      { texto: '[Isa] Agendar retrospectiva semana 1 e semana 4', bloqueante: false, done: false }
+    ],
+    obs: 'O pipe antigo não é arquivado imediatamente — segue ativo até todas as vagas em curso serem concluídas. O arquivamento formal só acontece após estabilização.'
+  }
+];
+
+const sprints = [
+  { num: 1, dates: '16 – 29 jun', name: 'Estrutura do pipe', color: 'sc-blue',
+    deliverable: 'Pipe novo criado com as 11 fases na ordem correta. Campos do Start Form e BP Validation configurados.',
+    etapas: 'Etapa 1 completa · Etapa 2 iniciada', owners: ['VP','BM'] },
+  { num: 2, dates: '30 jun – 13 jul', name: 'Campos: fases 3–7 + validação de KPIs', color: 'sc-blue',
+    deliverable: 'Campos de HR Management, Financial Approval, Backlog, Position Alignment e Recruiting Process Funnel configurados. Alinhamento com Tati sobre KPIs realizado. Cruzamento com documento do Douglas concluído — todos os campos de dados necessários confirmados no pipe.',
+    etapas: 'Etapa 2 em andamento', owners: ['VP','BM'] },
+  { num: 3, dates: '14 – 27 jul', name: 'Campos: fases 8–11 + férias Vitor', color: 'sc-purple',
+    deliverable: 'Campos de BCK, Offer (unificado), Closed Positions e On Hold. Etapa 2 concluída. Vitor de férias a partir de 20/07. Júlia assume as tarefas do Vitor na Etapa 3.',
+    etapas: 'Etapa 2 concluída · Etapa 3 iniciada por Bruna', owners: ['BM','JU'] },
+  { num: 4, dates: '28 jul – 10 ago', name: 'Automações — início', color: 'sc-purple',
+    deliverable: 'Inventário de automações iniciado (Anexo C). Automações de label e Position Alignment criadas por Bruna. Júlia executa automações do meio do funil. Conversa com Hellen agendada.',
+    etapas: 'Etapa 3 em andamento', owners: ['BM','JU'] },
+  { num: 5, dates: '11 – 24 ago', name: 'Automações — conclusão', color: 'sc-teal',
+    deliverable: 'Todas as 21 automações criadas e testadas individualmente. Automações legadas desligadas. Inventário Anexo C atualizado.',
+    etapas: 'Etapa 3 concluída', owners: ['VP','BM'] },
+  { num: 6, dates: '25 ago – 07 set', name: 'BOTs, e-mails e auditoria', color: 'sc-teal',
+    deliverable: '5 BOTs configurados no Slack. Prompt de IA testado. Anexo D 100% preenchido com classificação de todos os e-mails do pipe atual.',
+    etapas: 'Etapas 4 e 5 concluídas', owners: ['VP','BM'] },
+  { num: 7, dates: '08 – 21 set', name: 'Cards conectados', color: 'sc-amber',
+    deliverable: '6 cards conectados reconstruídos e validados com as áreas: Payroll, SOP, IT, Onboarding, Compliance e Internal Recruitment.',
+    etapas: 'Etapa 6 concluída', owners: ['VP','BM'] },
+  { num: 8, dates: '22 set – 05 out', name: 'Testes, homologação e go-live', color: 'sc-green',
+    deliverable: 'Checklist final aprovado. Vaga teste validada end-to-end. Go-live na semana de 28/set. Pipe novo em produção.',
+    etapas: 'Etapas 7 e 8 concluídas', owners: ['VP','BM','TV'] },
+];
+
+const risks = [
+  { id:'R1', risco:'Hellen indisponível ou sem tempo para fazer knowledge transfer das automações legadas', impacto:'Alto', mitigacao:'Agendar conversa com antecedência; mapear quem mais tem conhecimento das automações (Duda?)', owner:'Bruna', status:'aberto' },
+  { id:'R2', risco:'Validação com o time de Compliance (card BCK) atrasa ou é deprioritizada', impacto:'Alto', mitigacao:'Agendar reunião formal nas primeiras semanas de agosto; já existe o pipe de Compliance, só precisa construir a conexão', owner:'Vitor', status:'aberto' },
+  { id:'R3', risco:'Joyce muda os campos do pipe de Payroll antes da validação, quebrando o alinhamento', impacto:'Alto', mitigacao:'Formalizar o alinhamento de campos por e-mail ou documento após a conversa; usar o Anexo C para registrar os campos acordados', owner:'Bruna', status:'aberto' },
+  { id:'R4', risco:'Carga de vagas muito alta em agosto/setembro e o time não consegue reservar 1h/semana', impacto:'Médio', mitigacao:'O modelo de 1h/semana foi acordado com a Tati; qualquer semana zerada deve ser registrada aqui para ajustar o prazo de go-live', owner:'Tati', status:'aberto' },
+  { id:'R5', risco:'Automação de IA do Position Alignment não funciona conforme esperado com transcrições reais', impacto:'Médio', mitigacao:'Não bloqueia o go-live — o recrutador pode preencher manualmente como fallback. Mas precisa ser comunicado ao squad antes', owner:'Vitor', status:'aberto' },
+  { id:'R6', risco:'Campos dos pipes receptores (IT, Onboarding) têm tipos diferentes dos campos de origem', impacto:'Médio', mitigacao:'Luis Chang já liberou acesso de admin ao pipe de IT; combinar ajustes antes de construir os cards', owner:'Vitor', status:'aberto' },
+  { id:'R7', risco:'Pipe antigo tem automações desconhecidas que impactam pipes vizinhos ao serem desligadas', impacto:'Médio', mitigacao:'Auditoria sistemática (Etapa 5) + conversa com Hellen + manter pipe antigo ativo em paralelo durante a homologação', owner:'Bruna', status:'aberto' },
+  { id:'R8', risco:'Falta de prazo formal gera perda de prioridade ao longo do Q3', impacto:'Baixo', mitigacao:'Este cronograma formaliza o prazo. Isa acompanha sprints quinzenalmente. Status atualizado aqui a cada sprint', owner:'Isa', status:'prog' },
+];
+
+const team = [
+  { nome: 'Bruna Moura', role: 'Owner técnica do projeto', initials: 'BM', color: '#0952CC',
+    etapas: ['Etapa 1','Etapa 2','Etapa 3','Etapa 4','Etapa 5','Etapa 6','Etapa 7','Etapa 8'],
+    desc: 'Responsável pelas decisões finais sobre fases, campos e automações. Co-executa todas as etapas com Vitor.' },
+  { nome: 'Vitor Pereira', role: 'Co-executor', initials: 'VP', color: '#7C3AED',
+    etapas: ['Etapa 1','Etapa 2','Etapa 3','Etapa 4','Etapa 6','Etapa 7','Etapa 8'],
+    desc: 'Co-constrói todas as etapas com Bruna. Ponto focal para o campo de diversidade. Ausente 20/07–03/08.' },
+  { nome: 'Isa Azevedo', role: 'Project Manager', initials: 'IA', color: '#0891B2',
+    etapas: ['Todas as etapas'],
+    desc: 'Acompanha o progresso quinzenalmente. Ajuda com gestão de dependências externas, bloqueios e cadência de entregas.' },
+  { nome: 'Douglas Barbosa', role: 'Sponsor', initials: 'DB', color: '#059669',
+    etapas: ['Direcionamento estratégico'],
+    desc: 'Patrocínio e orientação metodológica. Apresentado na reunião de squad para validação de indicadores e KPIs.' },
+  { nome: 'Tatiana Vidal', role: 'Líder do time de TA', initials: 'TV', color: '#D97706',
+    etapas: ['Monitoramento geral','Etapa 8'],
+    desc: 'Monitora o projeto e garante alinhamento com as prioridades do time. Valida decisões estratégicas.' },
+  { nome: 'Hellen', role: 'Consultora de automações legadas', initials: 'H', color: '#DC2626',
+    etapas: ['Etapa 3','Etapa 5'],
+    desc: 'Conhecimento crítico das automações atuais do pipe (especialmente SOP). Envolvida nas Etapas 3 e 5 para knowledge transfer.' },
+  { nome: 'Júlia Souza', role: 'Cobertura férias Vitor (Etapa 3)', initials: 'JU', color: '#0891B2',
+    etapas: ['Etapa 3 (20/jul–03/ago)'],
+    desc: 'Assume as tarefas do Vitor durante o período de férias (20/07–03/08). Responsável pelas automações do meio do funil: recusa de offer, BCK auto-move e Internal Recruitment.' },
+];
+
+// ── AVATAR ──
+const avatarColors = { VP:'#7C3AED', BM:'#0952CC', TV:'#D97706', DB:'#059669', IA:'#0891B2', H:'#DC2626', JU:'#0891B2' };
+function initials(name) {
+  const parts = name.split(' ');
+  return (parts[0][0] + (parts[1]?.[0]||'')).toUpperCase();
+}
+
+// ── BUILD GANTT ──
+function buildGantt() {
+  const table = document.getElementById('gantt-table');
+  const N = N_WEEKS;
+  const CELL_W = 50;
+
+  // Pre-compute each week's date for header labels
+  function weekDate(w) {
+    return new Date(START.getTime() + w * WEEK_MS);
+  }
+  function monthName(d) {
+    return ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][d.getMonth()];
+  }
+
+  // ── MONTH HEADER ──
+  // Group consecutive weeks by month
+  let monthGroups = [];
+  let cur = null;
+  for (let w = 0; w < N; w++) {
+    const d = weekDate(w);
+    const key = d.getFullYear() * 100 + d.getMonth();
+    if (!cur || cur.key !== key) {
+      cur = { key, label: monthName(d) + '/' + String(d.getFullYear()).slice(2), count: 1 };
+      monthGroups.push(cur);
+    } else {
+      cur.count++;
+    }
+  }
+
+  let thead = '<thead>';
+  thead += '<tr><th class="label-col" style="background:var(--gray-light);">Etapa</th>';
+  monthGroups.forEach(g => {
+    thead += `<th colspan="${g.count}" style="width:${g.count*CELL_W}px;text-align:center;font-size:11px;font-weight:600;color:var(--text);background:var(--gray-light);border-left:1px solid var(--gray-border);">${g.label}</th>`;
+  });
+  thead += '</tr>';
+
+  // ── WEEK HEADER ──
+  thead += '<tr style="background:#fff;"><th class="label-col" style="font-size:10px;color:#9CA3AF;padding-left:16px;">Semana</th>';
+  for (let w = 0; w < N; w++) {
+    const d = weekDate(w);
+    const isFirstOfMonth = d.getDate() <= 7;
+    thead += `<th style="width:${CELL_W}px;min-width:${CELL_W}px;font-size:9px;color:#9CA3AF;font-weight:400;text-align:center;${isFirstOfMonth?'border-left:1px solid var(--gray-border);':''}">${d.getDate()}/${d.getMonth()+1}</th>`;
+  }
+  thead += '</tr></thead>';
+  table.innerHTML = thead;
+
+  // ── ROWS ──
+  const tbody = document.createElement('tbody');
+
+  etapas.forEach(e => {
+    const tr = document.createElement('tr');
+    tr.className = 'gantt-row';
+    tr.dataset.etapaId = e.id;
+    tr.addEventListener('click', () => showDetail(e.id));
+
+    // Label cell
+    const labelTd = document.createElement('td');
+    labelTd.className = 'gantt-label';
+    labelTd.innerHTML = `<div class="gantt-label-title">${e.nome.split('—')[0].trim()}</div><div class="gantt-label-sub">${e.sub}</div>`;
+    tr.appendChild(labelTd);
+
+    // Build a week-indexed map of bar segments
+    // Each cell w gets: { type, label, position: 'start'|'mid'|'end'|'full', colspan (only on start) }
+    const cellMap = new Array(N).fill(null);
+
+    e.bars.forEach(bar => {
+      const ws = weekNum(bar.start);
+      const we = weekNum(bar.end);
+      const wStart = Math.round(ws);
+      const wEnd   = Math.round(we);
+      if (wStart >= N) return;
+      const span = Math.min(wEnd, N) - wStart;
+      if (span <= 0) return;
+      cellMap[wStart] = { type: bar.type, label: bar.label, span };
+      for (let i = wStart + 1; i < wStart + span && i < N; i++) {
+        cellMap[i] = 'skip';
+      }
+    });
+
+    // Render cells
+    for (let w = 0; w < N; ) {
+      const cell = cellMap[w];
+      const d = weekDate(w);
+      const isFirstOfMonth = d.getDate() <= 7;
+      const borderStyle = isFirstOfMonth ? 'border-left:1px solid var(--gray-border);' : '';
+
+      if (cell && cell !== 'skip') {
+        // Bar cell
+        const td = document.createElement('td');
+        td.colSpan = cell.span;
+        td.style.cssText = `padding:5px 2px;${borderStyle}`;
+        const barEl = document.createElement('div');
+        barEl.className = `bar-${cell.type}`;
+        barEl.style.cssText = `
+          border-radius:4px;
+          height:22px;
+          display:flex;align-items:center;
+          padding:0 8px;
+          font-size:10px;font-weight:600;
+          white-space:nowrap;overflow:hidden;
+          width:100%;
+        `;
+        barEl.textContent = cell.label;
+        td.appendChild(barEl);
+        tr.appendChild(td);
+        w += cell.span;
+      } else if (cell === 'skip') {
+        w++;
+      } else {
+        // Empty cell
+        const td = document.createElement('td');
+        td.style.cssText = `padding:5px 2px;${borderStyle}`;
+        tr.appendChild(td);
+        w++;
+      }
+    }
+
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+}
+// ── DETAIL PANEL ──
+function showDetail(id) {
+  const panel = document.getElementById('detail-panel');
+  const e = etapas.find(x => x.id === id);
+  if (!e || !e.entregaveis) return;
+
+  // Toggle
+  if (panel.dataset.open === String(id)) {
+    panel.classList.remove('open');
+    panel.dataset.open = '';
+    document.querySelectorAll('.gantt-row').forEach(r => r.classList.remove('active'));
+    return;
+  }
+
+  document.querySelectorAll('.gantt-row').forEach(r => r.classList.remove('active'));
+  const activeRow = document.querySelector(`.gantt-row[data-etapa-id="${id}"]`);
+  if (activeRow) activeRow.classList.add('active');
+  panel.dataset.open = String(id);
+
+  const ownerChips = e.responsaveis.map(name => {
+    const ini = initials(name);
+    const color = avatarColors[ini] || '#6B7280';
+    return `<span class="person-chip"><span class="avatar" style="background:${color}">${ini}</span>${name}</span>`;
+  }).join('');
+
+  const todoHtml = e.todos.map((t, i) => `
+    <div class="todo-item ${t.done?'done':''}" onclick="toggleTodo('${id}',${i},this)">
+      <div class="todo-check">${t.done?'<span style="font-size:9px;color:#fff;font-weight:700;">✓</span>':''}</div>
+      <span>${t.texto}</span>
+      ${t.bloqueante ? '<span class="badge-blocker">Bloqueante</span>' : ''}
+    </div>
+  `).join('');
+
+  panel.innerHTML = `
+    <div class="dp-header">
+      <div>
+        <div class="dp-title">${e.nome}</div>
+        <div class="dp-dates">${e.datas} · Esforço estimado: ${e.esforco} · Sprint ${e.sprint || '—'}</div>
+        <div style="margin-top:8px;">${ownerChips}</div>
+      </div>
+      <button class="dp-close" onclick="closeDetail()">✕</button>
+    </div>
+    <div class="dp-grid">
+      <div class="dp-block">
+        <div class="dp-block-title">Entregáveis</div>
+        <ul class="dp-list">${e.entregaveis.map(x=>`<li><span class="dp-bullet"></span>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="dp-block">
+        <div class="dp-block-title">Critérios de aceite</div>
+        <ul class="dp-list">${e.aceite.map(x=>`<li><span class="dp-bullet green"></span>${x}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div style="margin-top:20px;">
+      <div class="dp-block-title">TO-DOs e pendências</div>
+      <div id="todos-${id}">${todoHtml}</div>
+    </div>
+    ${e.obs ? `<div style="margin-top:16px;padding:10px 14px;background:#F0F6FD;border-radius:8px;font-size:12px;color:#1E40AF;border:1px solid #BFDBFE;"><strong>Observação:</strong> ${e.obs}</div>` : ''}
+  `;
+
+  panel.classList.add('open');
+  setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+}
+
+function closeDetail() {
+  const panel = document.getElementById('detail-panel');
+  panel.classList.remove('open');
+  panel.dataset.open = '';
+  document.querySelectorAll('.gantt-row').forEach(r => r.classList.remove('active'));
+}
+
+function toggleTodo(etapaId, idx, el) {
+  const e = etapas.find(x => String(x.id) === String(etapaId));
+  if (!e) return;
+  e.todos[idx].done = !e.todos[idx].done;
+  el.classList.toggle('done', e.todos[idx].done);
+  const check = el.querySelector('.todo-check');
+  check.innerHTML = e.todos[idx].done ? '<span style="font-size:9px;color:#fff;font-weight:700;">\u2713</span>' : '';
+  const etapasPage = document.getElementById('page-etapas');
+  if (etapasPage && etapasPage.classList.contains('active')) {
+    buildEtapas();
+  }
+}
+
+// ── BUILD SPRINTS ──
+function buildSprints() {
+  const grid = document.getElementById('sprints-grid');
+  const ownerMap = { VP:'#7C3AED', BM:'#0952CC', TV:'#D97706', DB:'#059669', IA:'#0891B2' };
+  grid.innerHTML = sprints.map(s => `
+    <div class="sprint-card ${s.color}">
+      <div class="sprint-num">Sprint ${s.num}</div>
+      <div class="sprint-dates">${s.dates}</div>
+      <div class="sprint-name">${s.name}</div>
+      <div class="sprint-deliverable">${s.deliverable}</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:8px;font-weight:500;">${s.etapas}</div>
+      <div class="sprint-owner">
+        ${s.owners.map(o=>`<span class="person-chip"><span class="avatar" style="background:${ownerMap[o]||'#6B7280'}">${o}</span>${o==='VP'?'Vitor':o==='BM'?'Bruna':o==='TV'?'Tati':o}</span>`).join('')}
+      </div>
+      <div class="sprint-status">
+        <select class="status-select" onchange="updateSprintStatus(this)">
+          <option value="pendente" selected>Pendente</option>
+          <option value="progresso">Em progresso</option>
+          <option value="concluido">Concluído</option>
+          <option value="bloqueado">Bloqueado</option>
+        </select>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateSprintStatus(sel) {
+  const colors = { pendente:'', progresso:'border-color:var(--blue);', concluido:'border-color:var(--green);', bloqueado:'border-color:var(--red);' };
+  sel.closest('.sprint-card').style.cssText = colors[sel.value] || '';
+}
+
+// ── BUILD ETAPAS ──
+function buildEtapas() {
+  const c = document.getElementById('etapas-content');
+  const ownerColors = { VP:'#7C3AED', BM:'#0952CC', TV:'#D97706', DB:'#059669', IA:'#0891B2', H:'#DC2626' };
+
+  c.innerHTML = etapas.filter(e => e.id !== 'ferias').map(e => {
+    const ownerChips = e.responsaveis.map(name => {
+      const ini = initials(name);
+      const color = ownerColors[ini] || '#6B7280';
+      return `<span class="person-chip"><span class="avatar" style="background:${color}">${ini}</span>${name}</span>`;
+    }).join('');
+
+    const bloqueantes = e.todos.filter(t => t.bloqueante);
+    const normais = e.todos.filter(t => !t.bloqueante);
+
+    return `
+    <div style="background:white;border:1px solid var(--gray-border);border-radius:12px;padding:24px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:var(--text);">${e.nome}</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">${e.datas} · Esforço: ${e.esforco} · Sprint ${e.sprint || '—'}</div>
+        </div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;">${ownerChips}</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+        <div>
+          <div class="dp-block-title">Entregáveis</div>
+          <ul class="dp-list">${e.entregaveis.map(x=>`<li><span class="dp-bullet"></span>${x}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="dp-block-title">Critérios de aceite</div>
+          <ul class="dp-list">${e.aceite.map(x=>`<li><span class="dp-bullet green"></span>${x}</li>`).join('')}</ul>
+        </div>
+      </div>
+
+      ${bloqueantes.length ? `
+      <div style="margin-bottom:12px;">
+        <div class="dp-block-title" style="color:var(--red);">TO-DOs bloqueantes</div>
+        ${bloqueantes.map((t,i)=>`
+          <div class="todo-item ${t.done?'done':''}" onclick="toggleTodoEtapa('${e.id}','bloq',${e.todos.indexOf(t)},this)">
+            <div class="todo-check">${t.done?'<span style="font-size:9px;color:#fff;font-weight:700;">✓</span>':''}</div>
+            <span>${t.texto}</span>
+            <span class="badge-blocker">Bloqueante</span>
+          </div>`).join('')}
+      </div>` : ''}
+
+      ${normais.length ? `
+      <div>
+        <div class="dp-block-title">TO-DOs</div>
+        ${normais.map((t,i)=>`
+          <div class="todo-item ${t.done?'done':''}" onclick="toggleTodoEtapa('${e.id}','norm',${e.todos.indexOf(t)},this)">
+            <div class="todo-check">${t.done?'<span style="font-size:9px;color:#fff;font-weight:700;">✓</span>':''}</div>
+            <span>${t.texto}</span>
+          </div>`).join('')}
+      </div>` : ''}
+
+      ${e.obs ? `<div style="margin-top:16px;padding:10px 14px;background:#F0F6FD;border-radius:8px;font-size:12px;color:#1E40AF;border:1px solid #BFDBFE;"><strong>Nota:</strong> ${e.obs}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function toggleTodoEtapa(etapaId, tipo, idx, el) {
+  const e = etapas.find(x => String(x.id) === String(etapaId));
+  if (!e) return;
+  e.todos[idx].done = !e.todos[idx].done;
+  el.classList.toggle('done', e.todos[idx].done);
+  const check = el.querySelector('.todo-check');
+  check.innerHTML = e.todos[idx].done ? '<span style="font-size:9px;color:#fff;font-weight:700;">✓</span>' : '';
+  const panel = document.getElementById('detail-panel');
+  if (panel && panel.dataset.open === String(etapaId)) {
+    const todoEl = panel.querySelector('#todos-' + etapaId);
+    if (todoEl) {
+      todoEl.innerHTML = e.todos.map((t, i) => `
+        <div class="todo-item ${t.done?'done':''}" onclick="toggleTodo('${etapaId}',${i},this)">
+          <div class="todo-check">${t.done?'<span style="font-size:9px;color:#fff;font-weight:700;">✓</span>':''}</div>
+          <span>${t.texto}</span>
+          ${t.bloqueante ? '<span class="badge-blocker">Bloqueante</span>' : ''}
+        </div>
+      `).join('');
+    }
+  }
+}
+
+// ── BUILD RISKS ──
+function buildRisks() {
+  const table = document.getElementById('risks-table');
+  const impactoClass = { Alto:'rp-alto', Médio:'rp-medio', Baixo:'rp-baixo' };
+  const statusClass = { aberto:'rp-aberto', prog:'rp-prog', ok:'rp-ok' };
+  const statusLabel = { aberto:'Aberto', prog:'Em progresso', ok:'Resolvido' };
+
+  table.innerHTML = `
+    <thead><tr>
+      <th>#</th>
+      <th style="width:35%">Risco</th>
+      <th>Impacto</th>
+      <th style="width:30%">Mitigação</th>
+      <th>Owner</th>
+      <th>Status</th>
+    </tr></thead>
+    <tbody>${risks.map(r => `
+      <tr>
+        <td style="font-weight:600;color:var(--text-muted);">${r.id}</td>
+        <td>${r.risco}</td>
+        <td><span class="risk-pill ${impactoClass[r.impacto]||'rp-medio'}">${r.impacto}</span></td>
+        <td>${r.mitigacao}</td>
+        <td style="font-weight:500;">${r.owner}</td>
+        <td>
+          <select class="risk-status-sel" onchange="updateRiskStatus(this,'${r.id}')">
+            <option value="aberto" ${r.status==='aberto'?'selected':''}>Aberto</option>
+            <option value="prog" ${r.status==='prog'?'selected':''}>Em progresso</option>
+            <option value="ok" ${r.status==='ok'?'selected':''}>Resolvido</option>
+          </select>
+        </td>
+      </tr>`).join('')}
+    </tbody>`;
+}
+
+function updateRiskStatus(sel, id) {
+  const r = risks.find(x => x.id === id);
+  if (r) r.status = sel.value;
+}
+
+// ── BUILD TEAM ──
+function buildTeam() {
+  const grid = document.getElementById('team-grid');
+  grid.innerHTML = team.map(p => `
+    <div class="team-card">
+      <div class="team-avatar" style="background:${p.color}">${p.initials}</div>
+      <div class="team-name">${p.nome}</div>
+      <div class="team-role">${p.role}</div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;line-height:1.6;">${p.desc}</p>
+      <div class="team-etapas">${p.etapas.map(et=>`<span class="etapa-tag">${et}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+// ── TOGGLE CAMPO ──
+function toggleCampo(faseIdx, campoIdx) {
+  const campo = camposPorFase[faseIdx].campos[campoIdx];
+  campo.done = !campo.done;
+  buildCampos();
+}
+
+// ── NAV ──
+function showPage(name, tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  if (tab) tab.classList.add('active');
+  if (name === 'etapas') buildEtapas();
+  if (name === 'campos') buildCampos();
+}
+
+// ── PROJECT STATUS ──
+function updateProjectStatus() {
+  const val = document.getElementById('project-status').value;
+  const wrap = document.getElementById('status-pill-wrap');
+  const map = {
+    pre:       ['blue',  'dot blue',  'Planejado'],
+    exec:      ['green', 'dot green', 'Em execução'],
+    risco:     ['amber', 'dot amber', 'Em risco'],
+    concluido: ['green', 'dot green', 'Concluído'],
+  };
+  const [cls, dotCls, label] = map[val];
+  wrap.innerHTML = `<span class="status-pill ${cls}"><span class="${dotCls}"></span>${label}</span>`;
+}
+
+
+// ── CAMPOS POR FASE DATA ──
+const camposPorFase = [
+  { fase: '1 — Start Form', 
+    campos: [
+      { acao:'KEEP', campo:'Position Title', tipo:'Texto curto', notas:'Nome da vaga em inglês.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Seniority Level', tipo:'Lista suspensa', notas:'Junior / Pleno / Senior / Specialist / Manager / Director', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Hiring Country', tipo:'Lista suspensa + condicional', notas:'Brasil, Índia, México, Filipinas, US, Outros. Se "Outros" → campo "Qual país?"', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Working Model', tipo:'Lista suspensa', notas:'Híbrido / Remoto / Presencial', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Hiring Manager', tipo:'Texto curto / membro', notas:'Quem está abrindo a vaga.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Direct Leader', tipo:'Texto curto', notas:'Liderança direta da posição.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Squad / Area', tipo:'Texto curto', notas:'Preenchido manualmente pelo gestor.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Cost Center', tipo:'Texto curto', notas:'Preenchido manualmente pelo gestor.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Department', tipo:'Texto curto', notas:'Preenchido manualmente pelo gestor.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Goals Panel', tipo:'Texto longo / link', notas:'Preenchido manualmente pelo gestor.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Job Description', tipo:'Link / anexo', notas:'Confirmado essencial.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Reason for Hiring', tipo:'Texto longo', notas:'Motivo da abertura.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'PCD related field', tipo:'Sim/Não ou checkbox', notas:'Manter. Ver TO-DO 6 para expansão.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Confidential Position?', tipo:'Sim/Não', notas:'Quando "Sim" → automação aplica label CONFIDENTIAL POSITION.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Commission (in Start Form)', tipo:'—', notas:'Remover. Comissão vai para a Offer.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Contract Model (in Start Form)', tipo:'—', notas:'Remover. Mover para Offer.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Cultural information fields', tipo:'—', notas:'Remover. Não é mais utilizado.', owner:'Bruna', done: false },
+      { acao:'TODO', campo:'Diversity self-declaration', tipo:'Lista suspensa multi-select', notas:'Já resolvido por Vitor (TO-DO 2 — concluído).', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '2 — BP Validation', 
+    campos: [
+      { acao:'KEEP', campo:'Position validated?', tipo:'Sim/Não', notas:'Manter.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Job Description added and validated?', tipo:'Sim/Não', notas:'Novo. BP confirma que JD está anexado e validado.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Is this a RPKS chair?', tipo:'Sim/Não', notas:'Quando "Sim" → automação aplica label RPKS.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Is this a critical position?', tipo:'Sim/Não', notas:'Quando "Sim" → mostra campo condicional Critical area.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Critical area (condicional)', tipo:'Lista suspensa', notas:'PS, CS, Customer Ops, Inside Sales, Parcerias, IA. Aparece só se campo acima = Sim.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'C-Level email field', tipo:'—', notas:'Remover (obsoleto).', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Labels legados BP Validation', tipo:'—', notas:'Remover labels antigos da fase.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '3 — HR Management', 
+    campos: [
+      { acao:'KEEP', campo:'Position seniority confirmation', tipo:'Lista suspensa', notas:'Total Rewards confirma senioridade.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Salary Amount', tipo:'Numérico + moeda', notas:'Validado por Total Rewards.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Benefits validation', tipo:'Checklist', notas:'Validação dos benefícios conforme nível.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Variable compensation (condicional)', tipo:'Sim/Não + valor', notas:'Quando "Sim" → exige preenchimento do valor.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Bonus (condicional)', tipo:'Sim/Não + valor', notas:'Quando "Sim" → exige preenchimento do valor.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Is this position SOP-eligible?', tipo:'Sim/Não', notas:'Apenas informacional. Não dispara card aqui.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Auxiliar Department, Director, Approval of Activities', tipo:'—', notas:'Remover (campos mortos).', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Total Rewards info (desativado)', tipo:'—', notas:'Remover (já foi desativado).', owner:'Bruna', done: false },
+    ]
+  },
+  { fase: '4 — Financial Approval', 
+    campos: [
+      { acao:'KEEP', campo:'Final budget approval', tipo:'Sim/Não', notas:'Aprovação da Isa.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Available budget', tipo:'Numérico + moeda', notas:'Campo obrigatório novo.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Commission', tipo:'Numérico + texto', notas:'Tornar obrigatório. Campo de texto para justificativas.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'TA notification on archive', tipo:'Lembrete / automação', notas:'BOT no Slack caso o card seja arquivado aqui.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '5 — Backlog', 
+    campos: [
+      { acao:'KEEP', campo:'Consultancy question', tipo:'Sim/Não', notas:'Pergunta de consultoria — manter.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Recruiter responsible', tipo:'Lista suspensa / membro', notas:'Campo de atribuição do recrutador.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Assign Manager (duplicado)', tipo:'—', notas:'Remover (duplicação do Hiring Manager do Start Form).', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '6 — Position Alignment', 
+    campos: [
+      { acao:'ADD', campo:'Meeting transcript', tipo:'Anexo / link', notas:'Anexar transcrição da reunião de alinhamento.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Trigger IA fill', tipo:'Checkbox', notas:'Quando marcado, IA processa a transcrição e preenche os 7 tópicos.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Role Context', tipo:'Texto longo', notas:'Tópico 1 do roteiro (Anexo A).', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Business and Team Structure', tipo:'Texto longo', notas:'Tópico 2 do roteiro.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Processes and Workflow', tipo:'Texto longo', notas:'Tópico 3 do roteiro.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Required Skills and Knowledge', tipo:'Texto longo', notas:'Tópico 4 do roteiro.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Role Challenges', tipo:'Texto longo', notas:'Tópico 5 do roteiro.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Interview Focus', tipo:'Texto longo', notas:'Tópico 6 do roteiro.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Hiring Process Structure', tipo:'Texto longo', notas:'Tópico 7 do roteiro.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'English Level required', tipo:'Lista suspensa', notas:'Básico / Intermediário / Avançado.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Working Model', tipo:'Lista suspensa', notas:'Confirma ou replica do Start Form.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'SLA calculation fields', tipo:'Vários', notas:'Replicar campos atuais de SLA — TO-DO 12.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Top 5 must-have requirements', tipo:'—', notas:'Substituído pelos 7 tópicos da IA.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Benchmarkings field', tipo:'—', notas:'Substituído.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Outros campos legados de alinhamento', tipo:'—', notas:'Remover toda estrutura antiga, exceto campos de SLA.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '7 — Recruiting Process Funnel', 
+    campos: [
+      { acao:'KEEP', campo:'Candidate tracking fields', tipo:'Vários', notas:'Manter campos atuais essenciais ao funil.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Candidates interviewed by TA', tipo:'Numérico', notas:'Para cálculo de conversão (KPI).', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Candidates interviewed by HM', tipo:'Numérico', notas:'Para cálculo de conversão (KPI).', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Candidates in case study / other interviews', tipo:'Numérico', notas:'Para cálculo de conversão (KPI).', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Will this position go through Background Check?', tipo:'Sim/Não', notas:'Quando "Sim" → automação move para Background Check.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:"Connection with It's a Match", tipo:'—', notas:'Remover. Desligar automação.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Outros campos legados do funil', tipo:'—', notas:'Remover na auditoria 1-a-1.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '8 — Background Check', 
+    campos: [
+      { acao:'ADD', campo:'BCK status', tipo:'Lista suspensa', notas:'Em andamento / Aprovado / Reprovado / Inconclusivo.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Compliance card connection', tipo:'Card conectado', notas:'Card automático criado no pipe de Compliance — TO-DO 9.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'BCK observations', tipo:'Texto longo', notas:'Comentários do time de Compliance.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '9 — Offer', 
+    campos: [
+      { acao:'KEEP', campo:'Candidate Name', tipo:'Texto curto', notas:'Uma única vez — eliminar duplicação entre Prepare Offer e Offer Sent.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Candidate Personal Email', tipo:'E-mail', notas:'Uma única vez.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Starting Date', tipo:'Data', notas:'Essencial para Payroll, SOP e Onboarding.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Position Name (PT/EN auto-fill)', tipo:'Texto curto', notas:'Manter automação atual de PT/EN auto-fill.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Salary Amount + Currency', tipo:'Numérico + lista', notas:'Essencial para Payroll, SOP, Total Rewards.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Stock Options', tipo:'Numérico', notas:'Número de opções na offer.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Hiring Bonus (condicional)', tipo:'Sim/Não + valor', notas:'Tornar condicional: valor aparece só se Sim.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Answer Deadline', tipo:'Data', notas:'Alimenta automação do e-mail de oferta.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Offer Submission Date', tipo:'Data', notas:'Controle interno do fim do processo.', owner:'Vitor', done: false },
+      { acao:'KEEP', campo:'Department', tipo:'Texto curto', notas:'Necessário para Payroll/SOP.', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Level', tipo:'Lista suspensa', notas:'Multiplicador SOP (Jessica precisa).', owner:'Bruna', done: false },
+      { acao:'KEEP', campo:'Bonus accelerators', tipo:'Numérico (replicação)', notas:'Total Rewards preenche manualmente; automação replica na Offer.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Type of Hiring', tipo:'Lista suspensa', notas:'Reposicionado para Offer. Gatilho do Internal Recruitment. Alinhar com Joyce — TO-DO 5.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Contract Model', tipo:'Lista suspensa + condicional', notas:'CLT / Estágio / Other. Movido do Start Form.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Candidate Source (simplificado)', tipo:'Lista suspensa', notas:'6 opções: Hunting, Indicação, Candidatura ativa, Foi abordado, Consultoria, Outros.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Hired in California?', tipo:'Sim/Não', notas:'Crítico por questões trabalhistas.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:"Did the candidate accept?", tipo:'Sim/Não', notas:'"Sim" → Closed Position External. "Não" → loop para Funnel + BOT.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Generate Offer Letter', tipo:'—', notas:'Remover.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Card to', tipo:'—', notas:'Remover.', owner:'Bruna', done: false },
+      { acao:'DEL', campo:'Manager Title, President Title', tipo:'—', notas:'Remover — TO-DO 7.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Candidate Source (legado)', tipo:'—', notas:'Remover opções Google, Instagram, Medium e similares.', owner:'Vitor', done: false },
+      { acao:'DEL', campo:'Internal NPS, OLES', tipo:'—', notas:'Remover (raramente usados).', owner:'Bruna', done: false },
+    ]
+  },
+  { fase: '10A — Closed Position External', 
+    campos: [
+      { acao:'ADD', campo:'Final SLA closure', tipo:'Data automática', notas:'Encerra SLA do processo.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'IT connected card', tipo:'Card conectado', notas:'Refazer com Luis Chang. Campos enxutos confirmados.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Onboarding connected card', tipo:'Card conectado', notas:'Refazer com Carolina. Adicionar nível de cargo.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Payroll connected card', tipo:'Card conectado', notas:'Refazer com Joyce do zero.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'SOP connected card (condicional)', tipo:'Card conectado', notas:'Aberto manualmente quando posição for elegível para SOP.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'External welcome email', tipo:'E-mail automático', notas:'Permanece como e-mail (candidato externo não tem Slack).', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '10B — Closed Position Internal', 
+    campos: [
+      { acao:'ADD', campo:'Final SLA closure', tipo:'Data automática', notas:'Encerra SLA do processo.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Internal communication BOT', tipo:'BOT Slack', notas:'Candidato interno + líder atual + líder anterior + canal squad receptor.', owner:'Bruna', done: false },
+      { acao:'TODO', campo:'IT internal-movement notification', tipo:'—', notas:'Validar com Luis Chang o gatilho ideal — TO-DO 4.', owner:'Vitor', done: false },
+    ]
+  },
+  { fase: '11 — On Hold (paralela)', 
+    campos: [
+      { acao:'ADD', campo:'Hold reason', tipo:'Lista suspensa', notas:'Gestor / Administrativo / Estratégico-Financeiro.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'Hold start date', tipo:'Data', notas:'Data de entrada no Hold.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Hold end date', tipo:'Data', notas:'Data de saída do Hold.', owner:'Vitor', done: false },
+      { acao:'ADD', campo:'Who put on hold', tipo:'Lista suspensa / membro', notas:'TA / BP / Total Rewards / Isa / Outros — para auditoria.', owner:'Bruna', done: false },
+      { acao:'ADD', campo:'General comments', tipo:'Texto longo', notas:'Comentários sobre o motivo do Hold.', owner:'Vitor', done: false },
+    ]
+  },
+];
+
+// ── BUILD CAMPOS PAGE ──
+function buildCampos() {
+  const c = document.getElementById('campos-content');
+  if (!c) return;
+
+  const acaoColors = {
+    KEEP: { bg:'#D1FAE5', color:'#065F46', label:'MANTER' },
+    ADD:  { bg:'#DBEAFE', color:'#1E40AF', label:'ADICIONAR' },
+    DEL:  { bg:'#FEE2E2', color:'#991B1B', label:'REMOVER' },
+    TODO: { bg:'#FEF3C7', color:'#92400E', label:'TO-DO' },
+  };
+
+  const ownerColors = { Bruna:'#0952CC', Vitor:'#7C3AED', 'Bruna + Vitor':'#0891B2', 'Júlia':'#0891B2' };
+
+  c.innerHTML = camposPorFase.map(fase => {
+    const keeps = fase.campos.filter(c => c.acao === 'KEEP').length;
+    const adds  = fase.campos.filter(c => c.acao === 'ADD').length;
+    const dels  = fase.campos.filter(c => c.acao === 'DEL').length;
+    const todos = fase.campos.filter(c => c.acao === 'TODO').length;
+
+    const ownerColor = ownerColors[fase.owner_geral] || '#6B7280';
+
+    return `
+    <div style="background:white;border:1px solid var(--gray-border);border-radius:12px;margin-bottom:20px;overflow:hidden;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--gray-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text);">Fase ${fase.fase}</div>
+          <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;">
+            ${keeps ? `<span style="background:#D1FAE5;color:#065F46;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;">${keeps} MANTER</span>` : ''}
+            ${adds  ? `<span style="background:#DBEAFE;color:#1E40AF;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;">${adds} ADICIONAR</span>` : ''}
+            ${dels  ? `<span style="background:#FEE2E2;color:#991B1B;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;">${dels} REMOVER</span>` : ''}
+            ${todos ? `<span style="background:#FEF3C7;color:#92400E;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;">${todos} TO-DO</span>` : ''}
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          ${[...new Set(fase.campos.map(c=>c.owner))].map(o=>{
+            const oc = {'Bruna':'#0952CC','Vitor':'#7C3AED','Júlia':'#0891B2'}[o]||'#6B7280';
+            const n = fase.campos.filter(c=>c.owner===o).length;
+            return '<span style="background:'+oc+'18;color:'+oc+';border:1px solid '+oc+'30;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;">'+o+' ('+n+')</span>';
+          }).join('')}
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;min-width:600px;">
+          <thead>
+            <tr style="background:var(--gray-light);">
+              <th style="padding:8px 14px;text-align:center;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;width:36px;">✓</th>
+              <th style="padding:8px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;width:90px;">Ação</th>
+              <th style="padding:8px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Campo</th>
+              <th style="padding:8px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;width:140px;">Tipo</th>
+              <th style="padding:8px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Notas</th>
+              <th style="padding:8px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;width:80px;">Exec.</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${fase.campos.map((campo, i) => {
+              const ac = acaoColors[campo.acao] || acaoColors.KEEP;
+              const oc = ownerColors[campo.owner] || '#6B7280';
+              const faseIdx = camposPorFase.indexOf(fase);
+              const done = campo.done || false;
+              const bg = done ? '#F0FDF4' : (i%2===1 ? '#FAFAFA' : 'white');
+              const strike = done ? 'text-decoration:line-through;color:#9CA3AF;' : '';
+              const checkInner = done ? '<span style="font-size:9px;color:#fff;font-weight:700;">&#10003;</span>' : '';
+              const checkBorder = done ? 'var(--green)' : 'var(--gray)';
+              const checkBg = done ? 'var(--green)' : 'white';
+              return '<tr style="border-top:1px solid var(--gray-border);background:' + bg + ';cursor:pointer;" onclick="toggleCampo(' + faseIdx + ',' + i + ')">'
+                + '<td style="padding:8px 14px;text-align:center;">'
+                + '<div style="width:16px;height:16px;border-radius:4px;border:1.5px solid ' + checkBorder + ';background:' + checkBg + ';display:flex;align-items:center;justify-content:center;margin:auto;">'
+                + checkInner
+                + '</div></td>'
+                + '<td style="padding:8px 14px;"><span style="background:' + ac.bg + ';color:' + ac.color + ';padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;">' + ac.label + '</span></td>'
+                + '<td style="padding:8px 14px;font-size:12px;font-weight:500;' + strike + '">' + campo.campo + '</td>'
+                + '<td style="padding:8px 14px;font-size:11px;color:var(--text-muted);' + strike + '">' + campo.tipo + '</td>'
+                + '<td style="padding:8px 14px;font-size:11px;color:var(--text-mid);line-height:1.5;' + strike + '">' + campo.notas + '</td>'
+                + '<td style="padding:8px 14px;"><span style="font-size:10px;font-weight:600;color:' + oc + ';">' + campo.owner + '</span></td>'
+                + '</tr>';
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── INIT ──
+buildGantt();
+buildSprints();
+buildEtapas();
+buildRisks();
+buildTeam();
+</script>
+</body>
+</html>
